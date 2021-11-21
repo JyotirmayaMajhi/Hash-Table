@@ -27,6 +27,21 @@ public class MyLinkedList<K> {
 			this.tail = myNode;
 		}
 	}
+	
+	public boolean remove(K key) {
+		
+		INode<K> temp =head;
+		INode<K> prev = null;
+		while(temp != null) {
+			if(temp.getKey() == key) {
+				prev.setNext(temp.getNext());
+				return true;
+			} 
+			prev = temp;
+			temp = temp.getNext();
+		}
+		return false;
+	}
 
 	@Override
 	public String toString() {
